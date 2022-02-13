@@ -16,7 +16,7 @@ body {
 }
 
 .main-container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -25,7 +25,7 @@ body {
   grid-template: 1.1fr 7fr / 
       minmax(235px, 16vw) 3fr minmax(250px, 0.95fr);
   grid-template-areas: 
-      "l-sidebar header header"
+      "l-sidebar header user"
       "l-sidebar main   r-sidebar";
 }
 
@@ -36,27 +36,18 @@ body {
 .left-sidebar {
   grid-area: l-sidebar;
   display: grid;
-  grid-template: 0.98fr 2.8fr 3.5fr / 1fr;
+  grid-template: 0.98fr 2.5fr 3.8fr / 1fr;
   grid-template-areas: 
-      'filler'
+      '.'
       'page-buttons'
       'settings-container';
   background-color: rgba(255, 255, 255, 0.795);
 }
 
-.left-sidebar > * {
-  border: 2px solid blue;
-}
-
-.filler {
-  grid-area: filler;
-}
-
 .page-btns {
   grid-area: page-buttons;
   display: grid;
-  gap: 5px;
-  padding: 0 0.8rem;
+  padding: 0 25px;
 }
 
 .page-btns > * {
@@ -90,10 +81,108 @@ body {
 
 header {
   grid-area: header;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 0.7fr 1.3fr;
+  grid-template-areas: 
+        'search  .       .'
+        'welcome welcome buttons';
+  align-items: center;
+  align-content: center;
+}
+
+.search-bar {
+  grid-area: search;
+}
+
+.search-bar input {
+  width: 100%;
+  border-radius: 13px;
+  outline: none;
+  border: none;
+  padding: 0.2rem 1rem;
+  background-color: gainsboro;
+}
+
+.welcome {
+  grid-area: welcome;
+  font-size: 2rem;
+}
+
+.header-buttons {
+  grid-area: buttons;
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+  gap: 4%;
+}
+
+.header-buttons > * {
+  background-color: var(--dark-gray);
+  padding: 0.5rem;
+  border-radius: 13px;
+  color: white;
+  border: none;
+}
+
+.user-info {
+  grid-area: user;
+  display: grid;
+  grid-template: 1fr 1fr / 3fr 1fr 1fr;
+  grid-template-areas:
+      'name profile status'
+      'username profile status';
+  align-items: center;
+  align-content: center;
+  text-align: right;
+  column-gap: 12px;
+}
+
+.user-info .name {
+  grid-area: name;
+  align-self: end;
+}
+
+.user-info .username {
+  grid-area: username;
+  align-self: start;
+}
+.user-info .prof-pic {
+  grid-area: profile;
+  height: 50px;
+  width: 50px;
+  background-color: teal;
+  border-radius: 100%;
+}
+
+.user-info .status {
+  grid-area: status;
+  height: 12px;
+  width: 12px;
+  background-color: green;
+  border-radius: 100%;
+  margin-left: -13px;
 }
 
 main {
   grid-area: main;
+  display: grid;
+  grid-template: 2rem 1fr / 1fr;
+  grid-template-areas:
+      'title'
+      'cards';
+  padding: 0.8rem 1.4rem;
+}
+
+main .section-title {
+  grid-area: title;
+  font-size: 1.5rem;
+}
+
+main .cards-container {
+  grid-area: cards;
+}
+
+main > * {
+  border: 2px solid blue;
 }
 
 .right-sidebar {
