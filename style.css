@@ -126,14 +126,14 @@ header {
 .user-info {
   grid-area: user;
   display: grid;
-  grid-template: 1fr 1fr / 3fr 1fr 1fr;
+  grid-template: 1fr 1fr / 1fr max-content 0.3fr;
   grid-template-areas:
       'name profile status'
       'username profile status';
   align-items: center;
   align-content: center;
   text-align: right;
-  column-gap: 12px;
+  column-gap: 8px;
 }
 
 .user-info .name {
@@ -147,19 +147,20 @@ header {
 }
 .user-info .prof-pic {
   grid-area: profile;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   background-color: teal;
   border-radius: 100%;
+  justify-self: center;
+  margin-left: 5px;
 }
 
 .user-info .status {
   grid-area: status;
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 14px;
   background-color: green;
   border-radius: 100%;
-  margin-left: -13px;
 }
 
 main {
@@ -169,7 +170,9 @@ main {
   grid-template-areas:
       'title'
       'cards';
-  padding: 0.8rem 1.4rem;
+  padding: 0.8rem 1.4rem 0 1.4rem;
+  background-color: gray;
+  overflow-y: scroll;
 }
 
 main .section-title {
@@ -179,12 +182,34 @@ main .section-title {
 
 main .cards-container {
   grid-area: cards;
+  display: grid;
+  grid-template: 1fr 1fr 1fr / repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.5rem 1.2rem;
 }
 
-main > * {
-  border: 2px solid blue;
+main .card {
+  background-color: white;
+  border-radius: 12px;
+  display: grid;
+  align-content: end;
+}
+
+.card-info {
+  padding: 1rem;
+}
+
+.card-title {
+  text-transform: lowercase;
 }
 
 .right-sidebar {
   grid-area: r-sidebar;
+}
+
+.description {
+}
+
+.bottom-container {
+  background-color: lightslategray;
+  height: 50px;
 }
