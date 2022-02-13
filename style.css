@@ -13,7 +13,7 @@ body {
   place-items: center;
 }
 
-.container {
+.main-container {
   height: 100%;
   width: 100%;
   background: inherit;
@@ -21,12 +21,15 @@ body {
   overflow: hidden;
   z-index: 1;
   box-shadow: 0 0 1rem rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+
+  display: grid;
+  grid-template: 1fr 9fr / 1fr 4fr 1fr;
+  grid-template-areas: 
+      "l-sidebar header header"
+      "l-sidebar main   r-sidebar"
 }
 
-.container::before {
+.main-container::before {
   content: '';
   position: absolute;
   background: inherit;
@@ -40,11 +43,22 @@ body {
   margin: -20px;
 }
 
-.tets {
-  height: 100%;
-  width: 500px;
-  background-color: white;
-  opacity: 30%;
-  border-radius: 10px;
-  box-shadow: 0 0 1rem rgba(0,0,0,0.05);
+.main-container > * {
+  border: 2px solid red;
+}
+
+.left-sidebar {
+  grid-area: l-sidebar;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+.right-siderbar {
+  grid-area: r-sidebar;
 }
