@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: Stratos;
+  src: url(./assets/fonts/Stratos-Regular.otf);
+}
+
+@font-face {
+  font-family: StratosSB;
+  src: url(./assets/fonts/Stratos-SemiBold.otf)
+}
+
 :root {
   --dark-gray: #242428;
   --black: #0D0D0D;
@@ -12,8 +22,7 @@
 
 body {
   min-height: 100vh;
-  display: grid;
-  place-items: center;
+  overflow-x: hidden;
 }
 
 .main-container {
@@ -23,7 +32,7 @@ body {
   overflow: hidden;
 
   display: grid;
-  grid-template: 1.1fr 7fr / 
+  grid-template: max-content 7fr / 
       minmax(235px, 16vw) 3fr minmax(250px, 0.95fr);
   grid-template-areas: 
       "l-sidebar header user"
@@ -33,7 +42,7 @@ body {
 .left-sidebar {
   grid-area: l-sidebar;
   display: grid;
-  grid-template: 0.98fr 2.5fr 3.8fr / 1fr;
+  grid-template: 0.85fr 2.4fr 3.9fr / 1fr;
   grid-template-areas: 
       '.'
       'page-buttons'
@@ -54,13 +63,20 @@ body {
   grid-template: 1fr / 1fr 3fr;
   gap: 1rem;
   align-items: center;
+  font-family: Stratos, sans-serif;
 }
 
 .dashboard {
   background-color: var(--dark-gray);
   color: white;
   justify-self: center;
-  border-radius: 50px;
+  border-radius: 30px;
+}
+
+.page-btns img {
+  height: 30px;
+  width: 30px;
+  justify-self: end;
 }
 
 .settings-container {
@@ -71,9 +87,36 @@ body {
 
 .box {
   background-color: var(--dark-gray);
-  height: 300px;
-  width: 200px;
+  height: 220px;
+  width: 75%;
   border-radius: 25px;
+  margin-top: -20%;
+  position: relative;
+  color: white;
+  display: grid;
+  align-content: start;
+  gap: 1.7rem;
+  padding: 3.8rem 5% 2rem 12%;
+  font-family: Stratos, sans-serif;
+}
+
+.cog-img-container {
+  position: absolute;
+  top: -2rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 75px;
+  width: 75px;
+  border-radius: 100%;
+  background: var(--dark-gray);
+  display: grid;
+  place-items: center;
+}
+
+.cog-img-container img {
+  height: 65%;
+  width: 65%;
 }
 
 header {
@@ -85,6 +128,7 @@ header {
         'welcome welcome buttons';
   align-items: center;
   align-content: center;
+  padding: 0.8rem 0;
 }
 
 .search-bar {
@@ -103,6 +147,9 @@ header {
 .welcome {
   grid-area: welcome;
   font-size: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header-buttons {
@@ -114,10 +161,12 @@ header {
 
 .header-buttons > * {
   background-color: var(--dark-gray);
-  padding: 0.5rem;
-  border-radius: 13px;
+  padding: 0.75rem 0;
+  border-radius: 18px;
   color: white;
   border: none;
+  font-family: StratosSB;
+  font-size: 1rem;
 }
 
 .user-info {
@@ -167,7 +216,7 @@ main {
   grid-template-areas:
       'title'
       'cards';
-  padding: 0.8rem 1.4rem 0 1.4rem;
+  padding: 0.8rem 1.4rem 1rem 2rem;
   background-color: gray;
   overflow-y: auto;
 
@@ -192,6 +241,7 @@ main .cards-container {
   display: grid;
   grid-template: 1fr 1fr 1fr / repeat(auto-fit, minmax(380px, 1fr));
   gap: 1.5rem 1.2rem;
+  grid-auto-rows: minmax(200px, 1fr);
 }
 
 main .card {
@@ -229,10 +279,6 @@ main .card {
   background-color: gray;
   padding: 1rem 2rem 1rem 1.5rem;
   gap: 0.5rem;
-}
-
-.right-sidebar > * {
-  border: 2px solid blue;
 }
 
 .right-sidebar > .left-border {
@@ -273,6 +319,7 @@ main .card {
   display: grid;
   padding: 1rem;
   padding-left: 7%;
+  gap: 0.4rem;
 }
 
 .user {
@@ -299,4 +346,7 @@ main .card {
 .info {
   align-self: start;
   grid-area: 2 / 2 / 3 / -1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
