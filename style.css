@@ -4,11 +4,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --dark-gray: #242428;
+  --black: #0D0D0D;
+}
+
 body {
   min-height: 100vh;
-  background: url(./assets/background.jpg);
-  background-size: cover;
-  background-attachment: fixed;
   display: grid;
   place-items: center;
 }
@@ -16,31 +18,15 @@ body {
 .main-container {
   height: 100%;
   width: 100%;
-  background: inherit;
   position: relative;
   overflow: hidden;
-  z-index: 1;
-  box-shadow: 0 0 1rem rgba(0,0,0,0.2);
 
   display: grid;
-  grid-template: 1fr 9fr / 1fr 4fr 1fr;
+  grid-template: 1.1fr 7fr / 
+      minmax(235px, 16vw) 3fr minmax(250px, 0.95fr);
   grid-template-areas: 
       "l-sidebar header header"
-      "l-sidebar main   r-sidebar"
-}
-
-.main-container::before {
-  content: '';
-  position: absolute;
-  background: inherit;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: -1;
-  box-shadow: inset 0 0 0 2500px rgba(255, 255, 255, .5);
-  filter: blur(35px);
-  margin: -20px;
+      "l-sidebar main   r-sidebar";
 }
 
 .main-container > * {
@@ -49,6 +35,57 @@ body {
 
 .left-sidebar {
   grid-area: l-sidebar;
+  display: grid;
+  grid-template: 0.98fr 2.8fr 3.5fr / 1fr;
+  grid-template-areas: 
+      'filler'
+      'page-buttons'
+      'settings-container';
+  background-color: rgba(255, 255, 255, 0.795);
+}
+
+.left-sidebar > * {
+  border: 2px solid blue;
+}
+
+.filler {
+  grid-area: filler;
+}
+
+.page-btns {
+  grid-area: page-buttons;
+  display: grid;
+  gap: 5px;
+  padding: 0 0.8rem;
+}
+
+.page-btns > * {
+  text-align: left;
+  width: 100%;
+  display: grid;
+  grid-template: 1fr / 1fr 3fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dashboard {
+  background-color: var(--dark-gray);
+  color: white;
+  justify-self: center;
+  border-radius: 50px;
+}
+
+.settings-container {
+  grid-area: settings-container;
+  display: grid;
+  place-items: center;
+}
+
+.box {
+  background-color: var(--dark-gray);
+  height: 300px;
+  width: 200px;
+  border-radius: 25px;
 }
 
 header {
@@ -59,6 +96,6 @@ main {
   grid-area: main;
 }
 
-.right-siderbar {
+.right-sidebar {
   grid-area: r-sidebar;
 }
