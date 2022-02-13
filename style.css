@@ -14,10 +14,40 @@
   src: url(./assets/fonts/Stratos-SemiBold.otf)
 }
 
+@font-face {
+  font-family: ProbaPro;
+  src: url(./assets/fonts/Proba-Pro.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: ProbaPro;
+  src: url(./assets/fonts/Proba-Pro-Thin.ttf);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: ProbaPro;
+  src: url(./assets/fonts/Proba-Pro-Light.ttf);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: ProbaPro;
+  src: url(./assets/fonts/Proba-Pro-Medium.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: ProbaPro;
+  src: url(./assets/fonts/Proba-Pro-Semi\ Bold.ttf);
+  font-weight: 700;
+}
+
 :root {
   --dark-gray: #242428;
   --black: #0D0D0D;
-  --section-title-size: 1.5rem;
+  --section-title-size: 1.4rem;
 }
 
 body {
@@ -150,6 +180,8 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-family: ProbaPro, sans-serif;
+  font-weight: 400;
 }
 
 .header-buttons {
@@ -165,7 +197,7 @@ header {
   border-radius: 18px;
   color: white;
   border: none;
-  font-family: StratosSB;
+  font-family: StratosSB, sans-serif;
   font-size: 1rem;
 }
 
@@ -230,6 +262,7 @@ main::-webkit-scrollbar {
 
 .section-title {
   font-size: var(--section-title-size);
+  font-family: Stratos SB, sans-serif;
 }
 
 main .section-title {
