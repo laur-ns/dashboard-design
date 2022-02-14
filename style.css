@@ -320,13 +320,6 @@ main {
   padding: 0.8rem 1.4rem 1rem 2rem;
   background-color: var(--light-gray);
   overflow-y: auto;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-main::-webkit-scrollbar {
-  display: none;
 }
 
 .section-title {
@@ -433,7 +426,7 @@ main .card {
 
 .right-sidebar > .left-border {
   position: absolute;
-  height: 100%;
+  height: 98%;
   top: 2%;
   border-left: 2px solid #d7d7d7;
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.068);
