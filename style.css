@@ -48,7 +48,7 @@
   --light-gray: #f0f0f0;
   --dark-gray: #242428;
   --black: #0D0D0D;
-  --section-title-size: 1.4rem;
+  --section-title-size: 1.3rem;
   --dark-hover : #303030;
 }
 
@@ -172,13 +172,13 @@ body {
 header {
   grid-area: header;
   display: grid;
-  grid-template: 1fr 1fr / 400px 0.3fr 1.5fr;
+  grid-template: 1fr 1fr / 400px 0.43fr 1fr;
   grid-template-areas: 
         'search  .       .'
         'welcome welcome buttons';
   align-items: center;
   align-content: center;
-  padding: 0.8rem 0 0.6rem 0;
+  padding: 0.8rem 0 1rem 0;
 }
 
 .search-bar {
@@ -190,13 +190,13 @@ header {
 }
 
 .search-bar input {
-  border-radius: 13px;
+  border-radius: 17px;
   border: none;
   outline: none;
-  padding: 0.3rem 1rem 0.1rem 2.25rem;
+  padding: 0.6rem 1.1rem 0.4rem 2.35rem;
   font-family: ProbaPro, sans-serif;
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   background-color: var(--light-gray);
 }
 
@@ -214,7 +214,7 @@ header {
   z-index: -1;
   height: 100%;
   width: 100%;
-  border-radius: 17px;
+  border-radius: 20px;
   background: rgb(74,0,224);
   background: linear-gradient(293deg, rgba(74,0,224,1) 0%, rgba(142,45,226,1) 100%);
 }
@@ -229,7 +229,7 @@ header {
 .welcome {
   grid-area: welcome;
   margin-bottom: -0.3rem;
-  font-size: 1.85rem;
+  font-size: 2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -246,12 +246,12 @@ header {
 
 .header-buttons > * {
   background-color: var(--dark-gray);
-  padding: 0.75rem 0;
-  border-radius: 18px;
+  padding: 0.8rem 0;
+  border-radius: 24px;
   color: white;
   border: none;
   font-family: StratosSB, sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
@@ -266,6 +266,7 @@ header {
   grid-template-areas:
       'name profile status'
       'username profile status';
+  margin-top: 0.75rem;
   align-items: center;
   align-content: center;
   text-align: right;
@@ -275,11 +276,14 @@ header {
 .user-info .name {
   grid-area: name;
   align-self: end;
+  font-family: StratosSB, sans-serif;
 }
 
 .user-info .username {
   grid-area: username;
   align-self: start;
+  font-family: ProbaPro, sans-serif;
+  font-weight: 400;
 }
 .user-info .prof-pic {
   grid-area: profile;
@@ -295,7 +299,7 @@ header {
   grid-area: status;
   height: 14px;
   width: 14px;
-  background-color: green;
+  background-color: #00c71b;
   border-radius: 100%;
 }
 
@@ -307,7 +311,7 @@ main {
       'title'
       'cards';
   padding: 0.8rem 1.4rem 1rem 2rem;
-  background-color: gray;
+  background-color: var(--light-gray);
   overflow-y: auto;
 
   -ms-overflow-style: none;
@@ -320,7 +324,9 @@ main::-webkit-scrollbar {
 
 .section-title {
   font-size: var(--section-title-size);
-  font-family: Stratos SB, sans-serif;
+  font-family: Stratos, sans-serif;
+  letter-spacing: 0.03rem;
+  color: var(--black);
 }
 
 main .section-title {
@@ -330,44 +336,87 @@ main .section-title {
 main .cards-container {
   grid-area: cards;
   display: grid;
-  grid-template: 1fr 1fr 1fr / repeat(auto-fit, minmax(380px, 1fr));
+  grid-template: 13.5rem / repeat(auto-fit, minmax(380px, 1fr));
   gap: 1.5rem 1.2rem;
-  grid-auto-rows: minmax(200px, 1fr);
+  grid-auto-rows: 13.5rem;
 }
 
 main .card {
   background-color: white;
   border-radius: 12px;
   display: grid;
-  align-content: space-between;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.048);
 }
 
 .card-info {
-  padding: 1rem;
+  padding: 1.5rem 2rem 1rem 2rem;
+  align-self: start;
 }
 
 .card-title {
+  font-family: ProbaPro, sans-serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--black);
   text-transform: lowercase;
+}
+
+.technologies {
+  font-family: ProbaPro, sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--black);
+}
+
+.description {
+  margin-top: 0.4rem;
+  font-family: ProbaPro, sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.bottom-container {
+  align-self: end;
+  background-color: #f9f9f9;
+  height: 50px;
+  border-radius: 0 0 12px 12px;
+  display: grid;
+  grid-template-columns: 5fr 1fr 1fr 1fr;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+.bottom-container > * {
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+}
+
+.bottom-container > *:hover {
+  height: 30px;
+  width: 30px;
+}
+
+.star {
+  background-image: url(./assets/star-plus-outline.svg);
+  grid-column: 2 / span 1;
+}
+
+.fork {
+  background-image: url(./assets/source-fork.svg);  
+}
+
+.eye {
+  background-image: url(./assets/eye-plus-outline.svg);
 }
 
 .right-sidebar {
   grid-area: r-sidebar;
-}
-
-.description {
-}
-
-.bottom-container {
-  background-color: lightslategray;
-  height: 50px;
-}
-
-.right-sidebar {
   position: relative;
   display: grid;
   grid-template-rows: 2rem minmax(200px, 1.8fr) 2rem 1fr;
   grid-template-columns: 1fr;
-  background-color: gray;
+  background-color: var(--light-gray);
   padding: 1rem 2rem 1rem 1.5rem;
   gap: 0.5rem;
 }
@@ -376,7 +425,8 @@ main .card {
   position: absolute;
   height: 100%;
   top: 2%;
-  border-left: 4px solid white;
+  border-left: 2px solid #d7d7d7;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.068);
 }
 
 .announce-card {
