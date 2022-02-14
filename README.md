@@ -1,5 +1,9 @@
 # dashboard-design
 
-[Live Demo](https://laur-ns.github.io/dashboard-design)
+## [Live Demo](https://laur-ns.github.io/dashboard-design)
 
-![Gif of website]()
+### The purpose of this project is to practice CSS Grid.
+
+#
+
+![Gif of website](./demo.gif)

@@ -340,6 +340,8 @@ main .cards-container {
   grid-template: 13.5rem / repeat(auto-fit, minmax(380px, 1fr));
   gap: 1.5rem 1.2rem;
   grid-auto-rows: 13.5rem;
+  justify-items: center;
+  align-items: center;
 }
 
 main .card {
@@ -347,6 +349,14 @@ main .card {
   border-radius: 12px;
   display: grid;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.048);
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(103%);
+  transition: all .1s;
 }
 
 .card-info {
@@ -396,8 +406,8 @@ main .card {
 }
 
 .bottom-container > *:hover {
-  height: 30px;
-  width: 30px;
+  transform: scale(110%);
+  transition: all 0.1s;
 }
 
 .star {
