@@ -433,7 +433,7 @@ main .card {
 
 .right-sidebar > .left-border {
   position: absolute;
-  height: 100%;
+  height: 98%;
   top: 2%;
   border-left: 2px solid #d7d7d7;
   box-shadow: 1px 0 5px rgba(0, 0, 0, 0.068);
